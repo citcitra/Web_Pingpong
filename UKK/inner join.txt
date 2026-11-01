@@ -1,0 +1,3 @@
+DONEEE
+CREATE VIEW query_pemesanan AS
+SELECT transaksi.id_transaksi, transaksi.nama_pemesan,transaksi.subtotal,pesanan.id_menu, menu.nama_menu FROM transaksi INNER JOIN pesanan ON transaksi.id_transaksi = pesanan.id_transaksi JOIN menu ON pesanan.id_menu = menu.id ORDER BY `id_transaksi` ASC

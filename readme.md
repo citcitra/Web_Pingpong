@@ -1,73 +1,185 @@
-![DESAIN HOME](https://user-images.githubusercontent.com/45587433/62672750-11836e00-b9c6-11e9-977d-1619355cbc55.jpg)
-<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
+# 🏓 PINGPONG MANIA
+### Every Launch Makes You Better.
+
+**PingPong Mania** merupakan aplikasi berbasis web yang dirancang untuk mendukung kegiatan latihan tenis meja menggunakan mesin pelontar bola pingpong otomatis. Aplikasi ini dikembangkan untuk membantu pengguna mengatur sesi latihan, mengontrol pengaturan mesin, serta memantau aktivitas latihan melalui satu platform.
+
+---
+
+## 📌 Tentang Proyek
+
+PingPong Mania dikembangkan sebagai sistem pendukung latihan tenis meja dengan memanfaatkan teknologi web dan konsep otomatisasi. Sistem ini menyediakan antarmuka bagi pengguna untuk mengakses fitur latihan, sedangkan administrator memiliki akses khusus untuk mengelola pengguna dan memantau sistem.
+
+Aplikasi ini dikembangkan menggunakan framework Laravel dan database MySQL.
+
+## ✨ Fitur Utama
+
+### 👤 Fitur Pengguna
+- **Dashboard Pengguna** — Halaman utama untuk mengakses fitur latihan.
+- **Kontrol Mesin** — Mengatur pengoperasian mesin pelontar bola pingpong.
+- **Riwayat Latihan** — Melihat catatan aktivitas latihan.
+- **Profil Pengguna** — Mengelola informasi akun.
+- **Pengaturan Password** — Mengubah password akun.
+- **Waiting List** — Bergabung dan membatalkan antrean latihan.
+
+### 🛡️ Fitur Administrator
+- **Dashboard Admin** — Menampilkan ringkasan data pengguna.
+- **Manajemen Pengguna** — Melihat daftar akun yang terdaftar.
+- **Pencarian Pengguna** — Mencari akun berdasarkan nama atau email.
+- **Manajemen Role** — Mengubah hak akses pengguna menjadi admin atau user.
+
+### 🔐 Sistem Keamanan dan Hak Akses
+- Autentikasi login dan registrasi.
+- Pembagian hak akses berdasarkan role `admin` dan `user`.
+- Middleware untuk membatasi akses halaman sesuai role.
+- Proteksi CSRF pada form.
+- Pembatasan request pada endpoint kontrol mesin.
+
+## 🛠️ Teknologi yang Digunakan
+
+| Teknologi | Kegunaan |
+|---|---|
+| Laravel 5.8 | Backend dan framework aplikasi |
+| PHP 7.4 | Bahasa pemrograman backend |
+| MySQL | Database aplikasi |
+| HTML | Struktur halaman web |
+| CSS | Tampilan dan desain antarmuka |
+| JavaScript | Interaksi pada halaman web |
+| Blade Template | Template halaman Laravel |
+
+## 📂 Struktur Proyek
+
+```text
+PingPong-Mania/
+│
+├── app/
+│   ├── Http/
+│   │   ├── Controllers/
+│   │   │   ├── AdminController.php
+│   │   │   ├── PingPongController.php
+│   │   │   └── Middleware/
+│   │   └── Kernel.php
+│   └── User.php
+│
+├── database/
+│   └── migrations/
+│
+├── public/
+│   └── asset/
+│
+├── resources/
+│   └── views/
+│       ├── admin/
+│       ├── auth/
+│       └── ...
+│
+├── routes/
+│   └── web.php
+│
+├── .env.example
+├── artisan
+├── composer.json
+└── README.md
+```
+
+## ⚙️ Instalasi dan Konfigurasi
+
+Ikuti langkah berikut untuk menjalankan aplikasi di lingkungan lokal.
+
+### 1. Clone Repository
+
+```bash
+git clone https://github.com/USERNAME/PingPong-Mania.git
+```
+
+Masuk ke direktori proyek:
+
+```bash
+cd PingPong-Mania
+```
+
+### 2. Install Dependency
+
+```bash
+composer install
+```
+
+### 3. Konfigurasi Environment
+
+Salin file `.env.example` menjadi `.env`.
+
+```bash
+copy .env.example .env
+```
+
+Sesuaikan konfigurasi database pada file `.env`:
+
+```env
+APP_NAME="PingPong Mania"
+APP_ENV=local
+APP_DEBUG=true
+APP_URL=http://127.0.0.1:8000
+
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=pingpong_mania
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+Sesuaikan username dan password database dengan konfigurasi MySQL yang digunakan.
+
+### 4. Generate Application Key
+
+```bash
+php artisan key:generate
+```
+
+### 5. Migrasi Database
+
+Buat database dengan nama `pingpong_mania` melalui MySQL atau phpMyAdmin, kemudian jalankan:
+
+```bash
+php artisan migrate
+```
+
+### 6. Jalankan Aplikasi
+
+```bash
+php artisan serve
+```
+
+Buka aplikasi melalui browser:
+
+```text
+http://127.0.0.1:8000
+```
+
+## 👥 Hak Akses Pengguna
+
+Aplikasi memiliki dua jenis role dengan hak akses yang berbeda.
+
+| Role | Hak Akses |
+|---|---|
+| Admin | Dashboard admin, manajemen pengguna, pencarian akun, dan pengelolaan role. |
+| User | Dashboard pengguna, kontrol mesin, riwayat latihan, profil, dan waiting list. |
+
+Pembatasan akses dilakukan menggunakan middleware sehingga setiap role hanya dapat mengakses halaman sesuai kewenangannya.
+
+## 🎯 Tujuan Pengembangan
+
+Pengembangan PingPong Mania bertujuan untuk menyediakan sistem pendukung latihan tenis meja yang lebih praktis melalui integrasi aplikasi web dengan konsep mesin pelontar bola otomatis.
+
+Dengan adanya sistem ini, diharapkan pengguna dapat melakukan latihan secara lebih terstruktur dan administrator dapat mengelola akun serta hak akses melalui satu platform.
+
+## 👩‍💻 Pengembang
+
+**Tim Pengembang PingPong Mania**
+
+Proyek ini dikembangkan sebagai bagian dari kegiatan Project Base Learning
+
+---
 
 <p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
+  **PINGPONG MANIA — Every Launch Makes You Better.**
 </p>
-
-## About Laravel
-
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
-
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
-
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
-
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1400 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- [UserInsights](https://userinsights.com)
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
-- [iMi digital](https://www.imi-digital.de/)
-- [Earthlink](https://www.earthlink.ro/)
-- [Steadfast Collective](https://steadfastcollective.com/)
-- [We Are The Robots Inc.](https://watr.mx/)
-- [Understand.io](https://www.understand.io/)
-- [Abdel Elrafa](https://abdelelrafa.com)
-- [Hyper Host](https://hyper.host)
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-source software licensed under the [MIT license](https://opensource.org/licenses/MIT).
